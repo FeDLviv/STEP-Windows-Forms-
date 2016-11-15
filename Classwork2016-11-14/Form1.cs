@@ -28,59 +28,59 @@ namespace WindowsFormsApplication6
             //textBoxName.TextChanged += TextBoxName_TextChanged;
             //textBoxRate.TextChanged += TextBoxRate_TextChanged;
 
-            bs = new BindingSource();
-            bs.DataSource = st;
-            textBoxID.DataBindings.Add("Text", bs, "StID");
-
             //Binding b = new Binding("Text", st, "StID");
             //b.ControlUpdateMode = ControlUpdateMode.OnPropertyChanged;
             //b.DataSourceUpdateMode = DataSourceUpdateMode.OnValidation;
             //textBoxID.Validating += TextBoxID_Validating;
             //textBoxID.DataBindings.Add(b);
 
+            bs = new BindingSource();
+            bs.DataSource = st;
+         
+            textBoxID.DataBindings.Add("Text", bs, "StID");
             textBoxName.DataBindings.Add("Text", bs, "StName");
             textBoxRate.DataBindings.Add("Text", bs, "StRate");
         }
 
-        private void TextBoxID_Validating(object sender, CancelEventArgs e)
-        {
-            int i;
-            if (!int.TryParse(textBoxID.Text, out i))
-            {
-                MessageBox.Show("Введіть число");
-                e.Cancel = true;
-            }
-        }
+        //private void TextBoxID_Validating(object sender, CancelEventArgs e)
+        //{
+        //    int i;
+        //    if (!int.TryParse(textBoxID.Text, out i))
+        //    {
+        //        MessageBox.Show("Введіть число");
+        //        e.Cancel = true;
+        //    }
+        //}
 
-        private void St_stIDChange(object sender, EventArgs e)
-        {
-            textBoxID.Text = st.StID.ToString();
-        }
+        //private void St_stIDChange(object sender, EventArgs e)
+        //{
+        //    textBoxID.Text = st.StID.ToString();
+        //}
 
-        private void St_stNameChange(object sender, EventArgs e)
-        {
-            textBoxName.Text = st.StName;
-        }
+        //private void St_stNameChange(object sender, EventArgs e)
+        //{
+        //    textBoxName.Text = st.StName;
+        //}
 
-        private void St_stRateChange(object sender, EventArgs e)
-        {
-            textBoxRate.Text = st.StRate.ToString();
-        }
+        //private void St_stRateChange(object sender, EventArgs e)
+        //{
+        //    textBoxRate.Text = st.StRate.ToString();
+        //}
 
-        private void TextBoxID_TextChanged(object sender, EventArgs e)
-        {
-            st.StID = int.Parse(textBoxID.Text);
-        }
+        //private void TextBoxID_TextChanged(object sender, EventArgs e)
+        //{
+        //    st.StID = int.Parse(textBoxID.Text);
+        //}
 
-        private void TextBoxName_TextChanged(object sender, EventArgs e)
-        {
-            st.StName = textBoxName.Text;
-        }
+        //private void TextBoxName_TextChanged(object sender, EventArgs e)
+        //{
+        //    st.StName = textBoxName.Text;
+        //}
 
-        private void TextBoxRate_TextChanged(object sender, EventArgs e)
-        {
-            st.StRate = float.Parse(textBoxRate.Text);
-        }
+        //private void TextBoxRate_TextChanged(object sender, EventArgs e)
+        //{
+        //    st.StRate = float.Parse(textBoxRate.Text);
+        //}
 
         private void button4_Click(object sender, EventArgs e)
         {
